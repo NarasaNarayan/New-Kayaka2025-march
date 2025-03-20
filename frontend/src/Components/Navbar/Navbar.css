@@ -1,0 +1,14 @@
+.top-navbar {
+    position: fixed !important;  /* ✅ Force apply fixed position */
+    top: 0 !important;
+    left: 200px !important;
+    width: calc(100% - 200px) !important;
+    height: 80px !important;
+    background-color: #ffc107 !important;
+    z-index: 1000;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 20px !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+}
+
