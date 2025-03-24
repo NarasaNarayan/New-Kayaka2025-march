@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Sidebar.css"; // Import CSS
-import kclogo from "../../assets/kclogo.png";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +21,7 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <div className={`sidebar ${isOpen ? "open" : ""}`}>
-      <img className="logo" src={ kclogo } alt="Logo" />
+      
 
         <ul className="nav flex-column">
           <li className="nav-item">

@@ -1,0 +1,92 @@
+/* Sidebar default styles */
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 120px;
+    left: 0;
+    background-color: #FFC107;
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+  }
+  
+  /* Hamburger button */
+  .hamburger {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 24px;
+    background: rgb(20, 20, 19);
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    border-radius: 5px;
+    color: white;
+  }
+  
+  /* Dropdown styles */
+  .nav-item {
+    position: relative;
+  }
+  
+  .nav-link {
+    cursor: pointer;
+    padding: 10px;
+    display: block;
+  }
+  
+  /* Dropdown menu (Hidden by default) */
+  .dropdown-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #FFD54F;
+    display: none;  /* Hidden by default */
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 180px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Show dropdown when active */
+  .dropdown-menu.show {
+    display: block;
+  }
+  
+  /* Dropdown items */
+  .dropdown-item {
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    color: black;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #FFB300;
+  }
+  
+  /* Hide sidebar by default on small screens */
+  @media (max-width: 768px) {
+    .sidebar {
+      transform: translateX(-100%);
+      width: 250px;
+      top: 120px;
+      height: 100vh;
+    }
+  
+    .sidebar.open {
+      transform: translateX(0);
+    }
+  
+    .hamburger {
+      display: block;
+      top: 43px;
+      left: 90%;
+      z-index: 3000;
+      margin-left: 10px;
+    }
+  }
+  

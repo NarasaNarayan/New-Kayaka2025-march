@@ -1,7 +1,11 @@
 import React from "react";
 
 const About = () => {
-  return <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste, corrupti totam voluptatum minus reiciendis cumque, incidunt tempora consectetur molestias placeat quam deleniti soluta autem fuga inventore ad at voluptas ea doloremque, eligendi temporibus dicta. Quasi similique recusandae, voluptate id minima praesentium modi odit cum dicta optio nulla necessitatibus laborum corrupti ipsum vitae officia placeat, iure harum odio adipisci. Perspiciatis delectus vitae quaerat vero deleniti aliquam dolor nam odio, aut repellat quis natus quisquam molestias laudantium, praesentium repellendus atque facere quibusdam ex, dolore voluptatem eum doloremque? Deserunt quisquam omnis accusantium labore quo tempore eius tempora tenetur, perferendis provident animi, recusandae illo!</div>;
+  return (
+    <div style={{marginTop:'100px'}}>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum minus porro quasi laudantium quis nam nobis aperiam iusto obcaecati libero? Itaque sit inventore aliquid? Accusamus repudiandae sit tempore, a, iure et, ratione quas magnam ipsum nihil adipisci incidunt deleniti quibusdam amet commodi quis ad voluptatibus at blanditiis dolorem? Doloribus maiores, repellat cumque excepturi quisquam suscipit non quae temporibus error? Cumque rerum repellendus, inventore, nemo expedita doloremque sunt eum pariatur provident eos iusto, beatae quam sed. Quidem nostrum, iste neque ad expedita modi, numquam mollitia, tempore velit molestiae minus quam voluptatem! Magnam repellat rerum corrupti expedita accusantium aliquam iure labore recusandae?</p>
+    </div>
+  )
 };
 
 export default About;

@@ -1,14 +1,52 @@
 .top-navbar {
-    position: fixed !important;  /* ✅ Force apply fixed position */
-    top: 0 !important;
-    left: 200px !important;
-    width: calc(100% - 200px) !important;
-    height: 80px !important;
-    background-color: #ffc107 !important;
-    z-index: 1000;
-    display: flex !important;
-    align-items: center !important;
-    padding: 0 20px !important;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    z-index: 3000;
 }
 
+.logo {
+    height: 100px !important;
+    width:100px !important;
+}
+
+/* Adjust navbar on small screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        background-color: yellow;
+    }
+    
+    .navbar-brand {
+        font-size: 16px;
+    }
+
+    .form-control {
+        width: 100%;
+    }
+
+    .btn {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+  
+}
+
+
+
+.logo {
+    height: 40px; 
+    width: auto;
+}
+
+
+.form-control {
+    height: 35px !important;
+    font-size: 14px; 
+}
+
+
+.btn {
+    padding: 5px 10px !important;
+    font-size: 14px !important;
+}

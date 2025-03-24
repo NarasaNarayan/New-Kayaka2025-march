@@ -1,58 +1,106 @@
 /* Sidebar default (desktop view) */
-
 .sidebar {
-    width: 200px;
-    height: 100vh;
-    position: fixed;
-    top:0;
-    left: 0;
-    background-color: #FFC107;
-    padding: 10px;
-    overflow-y: auto;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  /* Main content should move when sidebar is visible */
-
-  .main-content {
-    margin-left: 200px;  /* Space for the sidebar */
-    margin-top: 80px;     /* Prevent overlap with navbar */
-    padding: 20px;
-    width: calc(100% - 200px);
+  width: 200px;
+  height: 100vh;
+  position: fixed;
+  top: 120px;
+  left: 0;
+  background-color: #FFC107;
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000; /* Ensuring it's not above the hamburger */
 }
-  /* Hamburger button (visible on mobile only) */
-  .hamburger {
-    display: none;
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  .logo{
-    width: 150px;
-    height: 150px;
-  }
-  
-  /* Mobile View */
-  @media (max-width: 768px) {
-    .sidebar {
-      transform: translateX(-100%); 
+
+/* Main content should move when sidebar is visible */
+.main-content {
+  margin-left: 200px; /* Space for the sidebar */
+  margin-top: 80px;   /* Prevent overlap with navbar */
+  padding: 20px;
+  width: calc(100% - 200px);
+}
+
+/* ✅ FIXED: Always show hamburger on small screens */
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 15px;  /* Ensures it's always at the top */
+  left: 15px;
+  font-size: 24px;
+  background: rgb(20, 20, 19);
+  border: none;
+  cursor: pointer;
+  width: 40px !important;
+  border-radius: 5px;
+  color: white;
+}
+
+/* Hide sidebar by default on small screens */
+@media (max-width: 768px) {
+  .sidebar {
+      transform: translateX(-100%);
       width: 250px;
-    }
-  
-    .sidebar.open {
-      transform: translateX(0); /* Show sidebar */
-    }
-  
-    .hamburger {
-      display: block; /* Show menu button */
-    }
-  
-    .main-content {
-      margin-left: 0; /* Don't push content */
-    }
+      top: 120px;
+      height: 100vh;
+   
   }
-  
+
+  /* Show sidebar when open */
+  .sidebar.open {
+      transform: translateX(0);
+  }
+
+  /* ✅ FIXED: Ensure hamburger is visible */
+  .hamburger {
+      display: block;
+      top: 43px; /* Adjust positioning */
+      left: 90%;
+      width: 100%;
+      text-align: center;
+      z-index: 3000;
+      margin-left: 10px;
+
+  }
+
+  /* ✅ Main content should take full width when sidebar is hidden */
+  .main-content {
+      margin-left: 0;
+      width: 100%;
+  }
+}
+@media(max-width:426px){
+  .hamburger {
+    display: block;
+    top: 43px; /* Adjust positioning */
+    left: 86%;
+    width: 100%;
+    text-align: center;
+    z-index: 3000;
+    margin-left: 10px;
+
+}
+}
+@media(max-width:376px){
+  .hamburger {
+    display: block;
+    top: 43px; 
+    left: 80%;
+    width: 100%;
+    text-align: center;
+    z-index: 3000;
+    margin-left: 10px;
+
+}
+}
+
+@media(max-width:320px){
+  .hamburger {
+    display: block;
+    top: 43px; /* Adjust positioning */
+    left: 84%;
+    width: 100%;
+    text-align: center;
+    z-index: 3000;
+    margin-left: 10px;
+
+}
+}

@@ -1,0 +1,105 @@
+.top-navbar {
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: yellow;
+    padding: 10px;
+}
+.navbar-Delivery{
+    display: flex;
+    margin-left: 100px;
+}
+.navbar a{
+    text-decoration: none;
+   
+}
+.navbar input::placeholder {
+   padding-left: 20px;
+}
+/* Logo Size */
+.logo {
+    height: 100px;
+    width: 100px;
+}
+
+.search-bar {
+    width: 500px !important;
+}
+
+/* Hide everything except search on small screens */
+@media (max-width: 768px) {
+
+    /* Hide logo */
+    .navbar-Delivery,
+    .navbar .btn,
+    /* Hide all buttons */
+    .navbar .nav-link {
+        /* Hide links */
+        display: none !important;
+    }
+
+    /* Search Bar Centered */
+    .navbar .search-bar {
+        width: 500px !important;
+        display: block;
+        
+        margin-left: -1px !important;
+    }
+}
+
+/* Reduce Search Bar Height */
+.navbar .search-bar {
+    height: 35px !important;
+    font-size: 14px;
+    width: 50%;
+    /* Adjust width for desktop */
+}
+
+@media (max-width: 426px) {
+
+
+    /* Search Bar Centered */
+    .navbar .search-bar {
+        width: 250px !important;
+        display: block;
+        width: 250px !important;
+        margin-left: -15px !important;
+    }
+}
+
+@media (max-width: 376px) {
+
+
+    /* Search Bar Centered */
+    .navbar .search-bar {
+        display: block;
+        width: 200px !important;
+        margin-left: -5px !important;
+    }
+}
+
+@media (max-width: 376px) {
+
+
+    /* Search Bar Centered */
+    .navbar .search-bar {
+        display: block;
+        width: 160px !important;
+        margin-left: -15px !important;
+    }
+}
+
+@media (max-width: 322px) {
+
+
+    /* Search Bar Centered */
+    .navbar .search-bar {
+        display: block;
+        width: 160px;
+        margin-left: -15px !important;
+    }
+}

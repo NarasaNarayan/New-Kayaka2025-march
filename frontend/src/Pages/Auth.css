@@ -1,0 +1,13 @@
+/* Responsive Authentication Box */
+.auth-box {
+    width: 100%;
+    max-width: 500px; /* Adjusts for large screens */
+    background: white;
+    border-radius: 8px;
+}
+
+@media (max-width: 576px) {
+    .auth-box {
+        width: 90%;
+    }
+}
