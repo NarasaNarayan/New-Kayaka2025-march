@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import {  FaHome, FaShoppingCart, FaBox, FaSignInAlt, FaMapMarkedAlt, FaLocationArrow, 
+    FaHeart, FaUser, FaGlobe, FaFilter  } from "react-icons/fa";
 import './Navbar2.css';
 import { Link, useNavigate } from "react-router-dom";
 import kclogo from "../../assets/kclogo.png";
@@ -45,16 +47,18 @@ const Navbar2 = ({ search, setsearch }) => {
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg bg-warning px-3 top-navbar">
+            <nav className="navbar navbar-expand-lg  px-3 top-navbar">
                 {/* Logo */ }
                 <a className="navbar-brand" href="/">
                     <img className="logo" src={ kclogo } alt="Logo" />
                 </a>
 
                 {/* Clickable Delivery Text - Opens Modal */ }
-             
-                    <pre className="navbar-Delivery" onClick={() => setmodal(true)}>🚚Delivery <br /><span style={ { marginLeft: '20px' } }>{ deliveryLocation }</span></pre>
-               
+
+              <div  className="navbar-Delivery"  style={ { marginLeft: '100px' } } onClick={() => setmodal(true)}>
+              🚚Delivery To <br/>{ deliveryLocation }
+              </div>
+                    
 
                 {/* Search Bar */ }
                 <input
@@ -68,11 +72,11 @@ const Navbar2 = ({ search, setsearch }) => {
 
                 {/* Icons */ }
                 <div className="d-flex align-items-center mt-2 mt-lg-0 d-none d-md-flex">
-                    <button className="btn btn-outline-dark me-2">🌐</button>
-                    <button className="btn btn-outline-dark me-2">🔍</button>
+                    <button className="btn btn-outline-dark me-2"><><FaGlobe/></></button>
+                    <button className="btn btn-outline-dark me-2"><FaFilter/></button>
                     <button className="btn btn-outline-dark me-2">🔔</button>
                     <Link to='/auth' className="nav-link">
-                        <button className="btn btn-outline-dark">👨🏿‍⚕️</button>
+                        <button className="btn btn-outline-dark"><FaUser/></button>
                     </Link>
                 </div>
             </nav>

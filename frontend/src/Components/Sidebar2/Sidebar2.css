@@ -7,7 +7,6 @@
     left: 0;
     background-color: #FFC107;
     overflow-y: auto;
-    transition: transform 0.3s ease-in-out;
     z-index: 1000;
   }
   
@@ -26,34 +25,28 @@
     color: white;
   }
   
-  /* Dropdown styles */
+  /* Ensure nav-items do not overlap */
   .nav-item {
+    display: flex;
+    flex-direction: column; /* Makes sure dropdowns expand downward */
+    width: 100%;
     position: relative;
   }
   
+  /* Main nav links */
   .nav-link {
     cursor: pointer;
     padding: 10px;
     display: block;
+    background: #FFD54F;
+    border-bottom: 1px solid #E0A800;
   }
   
-  /* Dropdown menu (Hidden by default) */
-  .dropdown-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background: #FFD54F;
-    display: none;  /* Hidden by default */
-    position: absolute;
-    left: 0;
-    top: 100%;
-    width: 180px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
   
   /* Show dropdown when active */
-  .dropdown-menu.show {
-    display: block;
+  .nav-item.open .dropdown-menu {
+    display: block;  /* Ensure dropdown takes space */
+    position: relative; /* Avoids overlapping */
   }
   
   /* Dropdown items */
@@ -67,6 +60,35 @@
   .dropdown-item:hover {
     background-color: #FFB300;
   }
+  /* Dropdown menu - hidden by default */
+  .dropdown-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #FFD54F;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    /* Initially hidden */
+    height: 0; /* Instead of max-height */
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-15px); /* Moves up slightly */
+    
+    /* Smooth slow transition */
+    transition: 
+      height 1s ease-in-out,   /* Slow expand */
+      opacity 0.8s ease-in-out,    /* Slow fade-in */
+      transform 0.8s ease-in-out;  /* Slow slide-down */
+  }
+  
+  /* Show dropdown with very slow smooth effect */
+  .nav-item.open .dropdown-menu {
+    height: auto; /* Allows content to expand */
+    opacity: 1;
+    transform: translateY(0); /* Moves back to original position */
+  }
+  
   
   /* Hide sidebar by default on small screens */
   @media (max-width: 768px) {
@@ -88,5 +110,42 @@
       z-index: 3000;
       margin-left: 10px;
     }
+  }
+  @media(max-width:426px){
+    .hamburger {
+      display: block;
+      top: 43px; /* Adjust positioning */
+      left: 86%;
+      width: 100%;
+      text-align: center;
+      z-index: 3000;
+      margin-left: 10px;
+  
+  }
+  }
+  @media(max-width:376px){
+    .hamburger {
+      display: block;
+      top: 43px; 
+      left: 80%;
+      width: 100%;
+      text-align: center;
+      z-index: 3000;
+      margin-left: 10px;
+  
+  }
+  }
+  
+  @media(max-width:320px){
+    .hamburger {
+      display: block;
+      top: 43px; /* Adjust positioning */
+      left: 84%;
+      width: 100%;
+      text-align: center;
+      z-index: 3000;
+      margin-left: 10px;
+  
+  }
   }
   

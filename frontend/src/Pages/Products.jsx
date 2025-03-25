@@ -1,10 +1,15 @@
 import React from "react";
 import all_product from "../assets/all_product.js";
 
-const Products = ({search}) => {
+const Products = ({search,getcart}) => {
+
     const filteredProducts = all_product.filter((product) =>
         product.name.toLowerCase().includes(search.toLowerCase())
       );
+
+      const addToCart=(item)=>{
+        getcart(item)
+      }
   return (
     <div className="container" style={{marginTop:'100px',}}>
       <h1 className="text-center">Popular Products</h1>
@@ -20,7 +25,7 @@ const Products = ({search}) => {
                 <p className="card-title text-small">{item.name}</p>
                 <p className="card-title">Category: {item.category}</p>
                 <p className="card-title">Price: {item.new_price}</p>
-                <button className="btn btn-primary w-100">Add to Cart</button>
+                <button className="btn btn-primary w-100" onClick={()=>addToCart(item)}>Add to Cart</button>
               </div>
             </div>
           </div>

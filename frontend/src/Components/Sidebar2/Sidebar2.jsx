@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Sidebar2.css"; // Import CSS
+import { 
+    FaHome, FaShoppingCart, FaBox, FaSignInAlt, FaMapMarkedAlt, FaLocationArrow, 
+    FaHeart, FaUser, FaGlobe, FaFilter 
+  } from "react-icons/fa";
 
 const Sidebar2 = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null); // Track open dropdown
-
+  const [openDropdown, setOpenDropdown] = useState(null); 
   // Function to close sidebar (used on small screens)
   const closeSidebar = () => {
     if (window.innerWidth <= 768) {
@@ -15,8 +18,9 @@ const Sidebar2 = () => {
 
   // Function to toggle dropdowns
   const toggleDropdown = (menu) => {
-    setOpenDropdown(openDropdown === menu ? null : menu);
+    setOpenDropdown((prev) => (prev === menu ? null : menu));
   };
+  
 
   return (
     <>
@@ -29,40 +33,40 @@ const Sidebar2 = () => {
       <div className={`sidebar ${isOpen ? "open" : ""}`}>
         <ul className="nav flex-column">
           <li className="nav-item">
-            <Link to="/" className="nav-link" onClick={closeSidebar}>🏡 Home</Link>
+            <Link to="/" className="nav-link" onClick={closeSidebar}><FaHome/> Home</Link>
           </li>
           <li className="nav-item">
             <Link to="/about" className="nav-link" onClick={closeSidebar}>📖 About</Link>
           </li>
 
           {/* Cart Dropdown */}
-          <li className="nav-item">
+          <li className={`nav-item ${openDropdown === "cart" ? "open" : ""}`}>
             <div className="nav-link dropdown-toggle" onClick={() => toggleDropdown("cart")}>
-              🛒 Cart 
+              <FaShoppingCart/> Cart 
             </div>
-            <ul className={`dropdown-menu ${openDropdown === "cart" ? "show" : ""}`}>
-              <li><Link to="/cart/view" className="dropdown-item" onClick={closeSidebar}>View Cart</Link></li>
+            <ul className="dropdown-menu">
+              <li><Link to="/cart" className="dropdown-item" onClick={closeSidebar}>View Cart</Link></li>
               <li><Link to="/cart/checkout" className="dropdown-item" onClick={closeSidebar}>Checkout</Link></li>
             </ul>
           </li>
 
           {/* Wishlist Dropdown */}
-          <li className="nav-item">
+          <li className={`nav-item ${openDropdown === "wishlist" ? "open" : ""}`}>
             <div className="nav-link dropdown-toggle" onClick={() => toggleDropdown("wishlist")}>
-              🖤 Wishlist 
+             <FaHeart/> Wishlist 
             </div>
-            <ul className={`dropdown-menu ${openDropdown === "wishlist" ? "show" : ""}`}>
+            <ul className="dropdown-menu">
               <li><Link to="/wishlist/view" className="dropdown-item" onClick={closeSidebar}>View Wishlist</Link></li>
               <li><Link to="/wishlist/saved" className="dropdown-item" onClick={closeSidebar}>Saved Items</Link></li>
             </ul>
           </li>
 
           {/* Profile Dropdown */}
-          <li className="nav-item">
+          <li className={`nav-item ${openDropdown === "profile" ? "open" : ""}`}>
             <div className="nav-link dropdown-toggle" onClick={() => toggleDropdown("profile")}>
-              👤 Profile 
+            < FaUser/>Profile 
             </div>
-            <ul className={`dropdown-menu ${openDropdown === "profile" ? "show" : ""}`}>
+            <ul className="dropdown-menu">
               <li><Link to="/profile/settings" className="dropdown-item" onClick={closeSidebar}>Settings</Link></li>
               <li><Link to="/profile/orders" className="dropdown-item" onClick={closeSidebar}>My Orders</Link></li>
               <li><Link to="/profile/logout" className="dropdown-item" onClick={closeSidebar}>Logout</Link></li>
