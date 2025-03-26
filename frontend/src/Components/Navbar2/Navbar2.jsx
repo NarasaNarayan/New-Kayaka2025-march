@@ -73,7 +73,7 @@ const Navbar2 = ({ search, setsearch }) => {
                 {/* Icons */ }
                 <div className="d-flex align-items-center mt-2 mt-lg-0 d-none d-md-flex">
                     <button className="btn btn-outline-dark me-2"><><FaGlobe/></></button>
-                    <button className="btn btn-outline-dark me-2"><FaFilter/></button>
+                  <Link to='/category'>  <button className="btn btn-outline-dark me-2"><FaFilter/></button></Link>
                     <button className="btn btn-outline-dark me-2">🔔</button>
                     <Link to='/auth' className="nav-link">
                         <button className="btn btn-outline-dark"><FaUser/></button>

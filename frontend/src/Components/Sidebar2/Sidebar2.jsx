@@ -21,6 +21,9 @@ const Sidebar2 = () => {
     setOpenDropdown((prev) => (prev === menu ? null : menu));
   };
   
+  const closeDropdown = () => {
+    setOpenDropdown(null);
+  };
 
   return (
     <>
@@ -45,8 +48,8 @@ const Sidebar2 = () => {
               <FaShoppingCart/> Cart 
             </div>
             <ul className="dropdown-menu">
-              <li><Link to="/cart" className="dropdown-item" onClick={closeSidebar}>View Cart</Link></li>
-              <li><Link to="/cart/checkout" className="dropdown-item" onClick={closeSidebar}>Checkout</Link></li>
+              <li><Link to="/cart" className="dropdown-item" onClick={() => { closeSidebar(); closeDropdown(); }} >View Cart</Link></li>
+              <li><Link to="/cart/checkout" className="dropdown-item" onClick={() => { closeSidebar(); closeDropdown(); }}>Checkout</Link></li>
             </ul>
           </li>
 
@@ -55,9 +58,9 @@ const Sidebar2 = () => {
             <div className="nav-link dropdown-toggle" onClick={() => toggleDropdown("wishlist")}>
              <FaHeart/> Wishlist 
             </div>
-            <ul className="dropdown-menu">
-              <li><Link to="/wishlist/view" className="dropdown-item" onClick={closeSidebar}>View Wishlist</Link></li>
-              <li><Link to="/wishlist/saved" className="dropdown-item" onClick={closeSidebar}>Saved Items</Link></li>
+            <ul className="dropdown-menu" >
+              <li><Link to="/wishlist/view" className="dropdown-item" onClick={() => { closeSidebar(); closeDropdown(); }}>View Wishlist</Link></li>
+              <li><Link to="/wishlist/saved" className="dropdown-item" onClick={() => { closeSidebar(); closeDropdown(); }}>Saved Items</Link></li>
             </ul>
           </li>
 
@@ -67,9 +70,9 @@ const Sidebar2 = () => {
             < FaUser/>Profile 
             </div>
             <ul className="dropdown-menu">
-              <li><Link to="/profile/settings" className="dropdown-item" onClick={closeSidebar}>Settings</Link></li>
-              <li><Link to="/profile/orders" className="dropdown-item" onClick={closeSidebar}>My Orders</Link></li>
-              <li><Link to="/profile/logout" className="dropdown-item" onClick={closeSidebar}>Logout</Link></li>
+              <li><Link to="/profile/settings" className="dropdown-item" onClick={() => { closeSidebar(); closeDropdown(); }}>Settings</Link></li>
+              <li><Link to="/profile/orders" className="dropdown-item" onClick={() => { closeSidebar(); closeDropdown(); }}>My Orders</Link></li>
+              <li><Link to="/profile/logout" className="dropdown-item" onClick={() => { closeSidebar(); closeDropdown(); }}>Logout</Link></li>
             </ul>
           </li>
 
@@ -79,6 +82,9 @@ const Sidebar2 = () => {
 
           <li className="nav-item">
             <Link to="/products" className="nav-link" onClick={closeSidebar}>🎁 Products</Link>
+          </li>  
+          <li className="nav-item">
+            <Link to="/category" className="nav-link" onClick={closeSidebar}>🍥Categorys</Link>
           </li>
         </ul>
       </div>

@@ -6,6 +6,9 @@ const Auth = () => {
   const [isSignup, setIsSignup] = useState(true);
   const [user, setUser] = useState({ name: "", email: "", password: "" });
 
+
+  console.log(user);
+  
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };

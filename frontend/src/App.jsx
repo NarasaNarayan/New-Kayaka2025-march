@@ -11,6 +11,7 @@ import Footer from "./Components/Footer/Footer";
 import { useState } from "react";
 import Sidebar2 from "./Components/Sidebar2/Sidebar2";
 import Cart from "./Pages/Cart";
+import Category from "./Pages/Category";
 
 function App() {
   const [search, setsearch] = useState('');
@@ -67,6 +68,8 @@ function App() {
             <Route path="/" element={ <Home /> } />
             <Route path="/about" element={ <About /> } />
             <Route path="/product" element={ <Products search={ search } getcart={getCart } /> } />
+            <Route path="/category" element={ <Category search={ search } getcart={getCart } /> } />
+
             <Route path="/auth" element={ <Auth />} />
             <Route path="/cart" element={ <Cart products={ products } removeItem={removeItem} updateQuantity={updateQuantity}/> } />
 

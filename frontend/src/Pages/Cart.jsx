@@ -29,7 +29,7 @@ const Cart = ({ products, updateQuantity, removeItem }) => {
                 <div className="cart-details">
                   <h5 className="product-title">{item.name}</h5>
                   <p className="product-price">
-                    Price: <strong>${item.new_price}</strong>
+                    Price: <strong>₹{item.new_price}</strong>
                   </p>
 
                   <div className="quantity-controls">
@@ -61,7 +61,7 @@ const Cart = ({ products, updateQuantity, removeItem }) => {
           </div>
 
           <div className="cart-total">
-            <h4>Total: <span>${Number(totalPrice).toFixed(2)}</span></h4>
+            <h4>Total: <span>₹{Number(totalPrice).toFixed(2)}</span></h4>
             <button className="btn btn-success btn-lg mt-3">Proceed to Checkout</button>
           </div>
         </div>
