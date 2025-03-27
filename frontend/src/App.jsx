@@ -8,14 +8,19 @@ import Products from "./Pages/Products";
 import Auth from "./Pages/Auth";
 import Navbar2 from "./Components/Navbar2/Navbar2";
 import Footer from "./Components/Footer/Footer";
-import { useState } from "react";
+import {  useState } from "react";
 import Sidebar2 from "./Components/Sidebar2/Sidebar2";
 import Cart from "./Pages/Cart";
 import Category from "./Pages/Category";
+import Example from "./Pages/Example";
 
 function App() {
   const [search, setsearch] = useState('');
   const [products, setproducts] = useState([]);
+ 
+
+ 
+
 
   const getCart = (item) => {
     // Check if the product is already in the cart
@@ -56,10 +61,11 @@ function App() {
  
   return (
     <BrowserRouter>
-      <Navbar2 search={ search } setsearch={ setsearch } />
+   
+      <Navbar2 search={ search } setsearch={ setsearch }  />
       <div className="d-flex">
         <div className="sidebar-container">
-          <Sidebar2 />
+          <Sidebar2 products={products} />
         </div>
 
         {/* Main Content Should Take Full Width on Mobile */ }
@@ -70,9 +76,9 @@ function App() {
             <Route path="/product" element={ <Products search={ search } getcart={getCart } /> } />
             <Route path="/category" element={ <Category search={ search } getcart={getCart } /> } />
 
-            <Route path="/auth" element={ <Auth />} />
+            <Route path="/auth" element={ <Auth />}  />
             <Route path="/cart" element={ <Cart products={ products } removeItem={removeItem} updateQuantity={updateQuantity}/> } />
-
+            <Route path="/example" element={ <Example />}  />
           </Routes>
         </div>
       </div>

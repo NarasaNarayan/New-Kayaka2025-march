@@ -1,15 +1,26 @@
 import React from "react";
 import all_product from "../assets/all_product.js";
+import { useNavigate } from "react-router-dom";
 
 const Products = ({search,getcart}) => {
-
+  const navigate = useNavigate();
+  
     const filteredProducts = all_product.filter((product) =>
         product.name.toLowerCase().includes(search.toLowerCase())
       );
 
-      const addToCart=(item)=>{
-        getcart(item)
-      }
+      const addToCart = (item) => {
+        const token = localStorage.getItem("token"); // Check if user is logged in
+    
+        if (!token) {
+            alert("You need to log in to add items to the cart!");
+            navigate("/auth"); // Redirect to Auth page
+            return;
+        }
+    
+        getcart(item);
+    };
+    
   return (
     <div className="container" style={{marginTop:'100px',}}>
       <h1 className="text-center">Popular Products</h1>

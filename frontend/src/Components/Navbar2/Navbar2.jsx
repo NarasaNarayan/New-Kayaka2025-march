@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {  FaHome, FaShoppingCart, FaBox, FaSignInAlt, FaMapMarkedAlt, FaLocationArrow, 
-    FaHeart, FaUser, FaGlobe, FaFilter  } from "react-icons/fa";
+    FaHeart, FaUser, FaGlobe, FaFilter ,FaSignOutAlt } from "react-icons/fa";
 import './Navbar2.css';
 import { Link, useNavigate } from "react-router-dom";
 import kclogo from "../../assets/kclogo.png";
@@ -8,10 +8,27 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 
 const Navbar2 = ({ search, setsearch }) => {
-    const navigate = useNavigate();
     const [zipCode, setZipCode] = useState('');
     const [deliveryLocation, setDeliveryLocation] = useState('Select Your Address');
     const [model,setmodal]=useState(false)
+
+    const navigate = useNavigate();
+    const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
+
+    // Detect login/logout changes
+    useEffect(() => {
+        const checkAuth = () => setIsAuthenticated(!!localStorage.getItem("token"));
+        checkAuth();
+        window.addEventListener("storage", checkAuth);
+        return () => window.removeEventListener("storage", checkAuth);
+    }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        setIsAuthenticated(false);
+        navigate("/category"); // Redirect after logout
+    };
+    
 
     const fetchDeliveryLocation = async () => {
         if (zipCode) {
@@ -75,9 +92,18 @@ const Navbar2 = ({ search, setsearch }) => {
                     <button className="btn btn-outline-dark me-2"><><FaGlobe/></></button>
                   <Link to='/category'>  <button className="btn btn-outline-dark me-2"><FaFilter/></button></Link>
                     <button className="btn btn-outline-dark me-2">🔔</button>
-                    <Link to='/auth' className="nav-link">
-                        <button className="btn btn-outline-dark"><FaUser/></button>
+                  
+                    {!isAuthenticated ? (
+                    <Link to="/auth">
+                        <button className="btn btn-outline-dark"><FaUser /> Login</button>
                     </Link>
+                ) : (
+                    <button className="btn btn-outline-danger" onClick={handleLogout}>
+                        <FaSignOutAlt /> Logout
+                    </button>
+                )}
+             
+                
                 </div>
             </nav>
 

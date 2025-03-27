@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import all_product from "../assets/all_product.js";
+import { useNavigate } from "react-router-dom";
 
 const Category = ({ getcart, search }) => {
-
+    const navigate = useNavigate();
+    
     const [products, setProducts] = useState(all_product);
     const [activeCategory, setActiveCategory] = useState("All");
-    const [minPrice, setMinPrice] = useState(0);
+    const [minPrice,setMinPrice] = useState(0);
     const [maxPrice, setMaxPrice] = useState(10000); 
     const [sortOrder, setSortOrder] = useState(null); // To track sorting state (low to high or high to low)
 
@@ -45,8 +47,17 @@ const Category = ({ getcart, search }) => {
     };
 
     const addToCart = (item) => {
+        const token = localStorage.getItem("token"); 
+    
+        if (!token) {
+            alert("You need to log in to add items to the cart!");
+            navigate("/auth"); // Redirect to Auth page
+            return;
+        }
+    
         getcart(item);
     };
+    
 
     return (
         <div className="container" style={ { marginTop: '50px', zIndex: '5000' } }>
