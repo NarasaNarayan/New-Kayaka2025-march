@@ -37,7 +37,7 @@ const Category = ({ search }) => {
         }
 
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/cart`, {
+            const response = await fetch('https://new-kayaka2025-march.onrender.com/api/cart', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
