@@ -9,17 +9,21 @@
     background-color: #FFC107;
     padding: 10px;
 }
-.navbar-Delivery{
+
+.navbar-Delivery {
     display: flex;
     margin-left: 100px;
 }
-.navbar a{
+
+.navbar a {
     text-decoration: none;
-   
+
 }
+
 .navbar input::placeholder {
-   padding-left: 20px;
+    padding-left: 20px;
 }
+
 /* Logo Size */
 .logo {
     height: 100px;
@@ -30,23 +34,27 @@
     width: 500px !important;
 }
 
-/* Hide everything except search on small screens */
+.language-dropdown {
+    top: 40px;
+    right: 0;
+    z-index: 1000;
+    min-width: 200px;
+    height: auto;
+    overflow-y: auto;
+}
+
 @media (max-width: 768px) {
 
-    /* Hide logo */
     .navbar-Delivery,
     .navbar .btn,
-    /* Hide all buttons */
     .navbar .nav-link {
-        /* Hide links */
         display: none !important;
     }
 
-    /* Search Bar Centered */
     .navbar .search-bar {
         width: 500px !important;
         display: block;
-        
+
         margin-left: -1px !important;
     }
 }

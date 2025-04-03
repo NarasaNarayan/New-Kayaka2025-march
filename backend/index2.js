@@ -14,20 +14,13 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((err) => console.error("❌ MongoDB Connection Error:", err));
 
 
-  const UserSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
     name: String,
     email: { type: String, unique: true },
     password: String,
-    cart: [{
-        productId: String,
-        name: String,
-        price: Number,
-        quantity: Number,
-        image: String // ✅ Added image field
-    }],
+    cart: [{ productId: String, name: String, price: Number, quantity: Number }],
     address: String,
 });
-
 
 const User = mongoose.model("User", UserSchema);
 
@@ -78,36 +71,33 @@ app.post("/api/login", async (req, res) => {
 // ✅ Add to Cart Route
 
 // Add to Cart Route
-// ✅ Add to Cart Route
 app.post("/api/cart", verifyToken, async (req, res) => {
-  try {
-      const { productId, name, price, quantity, image } = req.body;
+    try {
+        const { productId, name, price, quantity } = req.body;
 
-      console.log("Received:", productId, name, price, quantity, image); // Debugging Line
+        console.log("Received productId:", productId); // ✅ Debugging line
 
-      if (!productId || !name || !price || !quantity || !image) {
-          return res.status(400).json({ message: "All fields are required" });
-      }
+        if (!mongoose.Types.ObjectId.isValid(productId)) {
+            return res.status(400).json({ message: "Invalid product ID format" });
+        }
 
-      const user = await User.findById(req.user.id);
-      if (!user) return res.status(404).json({ message: "User not found" });
+        const user = await User.findById(req.user.id);
+        if (!user) return res.status(404).json({ message: "User not found" });
 
-      // Check if product already exists in the cart
-      const existingProduct = user.cart.find(item => item.productId.toString() === productId);
-      if (existingProduct) {
-          existingProduct.quantity += quantity;
-      } else {
-          user.cart.push({ productId, name, price, quantity, image });
-      }
+        const existingProduct = user.cart.find(item => item.productId.toString() === productId);
+        if (existingProduct) {
+            existingProduct.quantity += quantity;
+        } else {
+            user.cart.push({ productId, name, price, quantity });
+        }
 
-      await user.save();
-      res.json({ message: "Product added to cart", cart: user.cart });
-  } catch (error) {
-      console.error("Error adding to cart:", error);
-      res.status(500).json({ message: "Error adding to cart", error: error.message });
-  }
+        await user.save();
+        res.json({ message: "Product added to cart" });
+    } catch (error) {
+        console.error("Error adding to cart:", error);
+        res.status(500).json({ message: "Error adding to cart", error: error.message });
+    }
 });
-
 
 
 
@@ -122,50 +112,6 @@ app.get("/api/cart", verifyToken, async (req, res) => {
         res.status(500).json({ message: "Error fetching cart data" });
     }
 });
-
-app.patch("/api/cart", verifyToken, async (req, res) => {
-  try {
-      const { productId, quantity } = req.body;
-
-      if (!productId || quantity < 1) {
-          return res.status(400).json({ message: "Invalid product ID or quantity" });
-      }
-
-      const user = await User.findById(req.user.id);
-      if (!user) return res.status(404).json({ message: "User not found" });
-
-      const item = user.cart.find(item => item.productId === productId);
-      if (!item) return res.status(404).json({ message: "Product not found in cart" });
-
-      item.quantity = quantity; // ✅ Update quantity
-      await user.save();
-
-      res.json({ message: "Cart updated", cart: user.cart });
-  } catch (error) {
-      console.error("Error updating cart:", error);
-      res.status(500).json({ message: "Error updating cart" });
-  }
-});
-
-
-app.delete("/api/cart/:productId", verifyToken, async (req, res) => {
-  try {
-      const { productId } = req.params;
-
-      const user = await User.findById(req.user.id);
-      if (!user) return res.status(404).json({ message: "User not found" });
-
-      user.cart = user.cart.filter(item => item.productId !== productId);
-      await user.save();
-
-      res.json({ message: "Item removed from cart", cart: user.cart });
-  } catch (error) {
-      console.error("Error removing item:", error);
-      res.status(500).json({ message: "Error removing item" }); // ✅ Make sure response is JSON
-  }
-});
-
-
 
 // ✅ Save Address Route
 app.post("/api/address", verifyToken, async (req, res) => {

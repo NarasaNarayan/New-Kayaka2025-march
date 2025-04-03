@@ -48,7 +48,7 @@ function App() {
   };
 
 
- // Update quantity of a product in the cart
+ 
  const updateQuantity = (id, newQuantity) => {
   setproducts((prevCart) =>
     prevCart.map((item) =>
@@ -77,7 +77,7 @@ function App() {
             <Route path="/category" element={ <Category search={ search } getcart={getCart } /> } />
 
             <Route path="/auth" element={ <Auth />}  />
-            <Route path="/cart" element={ <Cart products={ products } removeItem={removeItem} updateQuantity={updateQuantity}/> } />
+            <Route path="/cart" element={ <Cart products={ products } getcart={getCart } removeItem={removeItem} updateQuantity={updateQuantity}/> } />
             <Route path="/example" element={ <Example />}  />
           </Routes>
         </div>

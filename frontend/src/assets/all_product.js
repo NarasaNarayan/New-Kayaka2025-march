@@ -22,7 +22,7 @@ import p20_img from "./Kinnal Toys5.png";
 
 let all_product = [
   {
-    id: 1,
+    _id: "65d3c6ef2f9c4b5a48c8a345",
     name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
     category: "BidriArt",
     image: p1_img,
@@ -30,7 +30,7 @@ let all_product = [
     old_price: 80.5,
   },
   {
-    id: 2,
+    _id: "65d3c6ef2f9c4b5a48c8a346",
     name: "Suraye Vase Star Work",
     category: "BidriArt",
     image: p2_img,
@@ -38,7 +38,7 @@ let all_product = [
     old_price: 120.5,
   },
   {
-    id: 3,
+    _id: "65d3c6ef2f9c4b5a48c8a347",
     name: "Shanayi Vase Phool Jadi",
     category: "BidriArt",
     image: p3_img,
@@ -46,7 +46,7 @@ let all_product = [
     old_price: 100.5,
   },
   {
-    id: 4,
+    _id: "65d3c6ef2f9c4b5a48c8a348",
     name: "Peacock standing vase",
     category: "BidriArt",
     image: p4_img,
@@ -54,7 +54,7 @@ let all_product = [
     old_price: 150.0,
   },
   {
-    id: 5,
+    _id: "65d3c6ef2f9c4b5a48c8a349",
     name: "Peacock standing vase",
     category: "BidriArt",
     image: p5_img,
@@ -62,7 +62,7 @@ let all_product = [
     old_price: 120.5,
   },
   {
-    id: 6,
+    _id: "65d3c6ef2f9c4b5a48c8a350",
     name: "kolapuri Chappales",
     category: " Chappales",
     image: p6_img,
@@ -70,7 +70,7 @@ let all_product = [
     old_price: 120.5,
   },
   {
-    id: 7,
+    _id: "65d3c6ef2f9c4b5a48c8a351",
     name: "kolapuri Chappales",
     category: " Chappales",
     image: p7_img,
@@ -78,7 +78,7 @@ let all_product = [
     old_price: 120.5,
   },
   {
-    id: 8,
+    _id: "65d3c6ef2f9c4b5a48c8a352",
     name: "kolapuri Chappales",
     category: " Chappales",
     image: p8_img,
@@ -86,7 +86,7 @@ let all_product = [
     old_price: 120.5,
   },
   {
-    id: 9,
+    _id: "65d3c6ef2f9c4b5a48c8a353",
     name: "kolapuri Chappales",
     category: " Chappales",
     image: p9_img,
@@ -94,7 +94,7 @@ let all_product = [
     old_price: 120.5,
   },
   {
-    id: 10,
+    _id: "65d3c6ef2f9c4b5a48c8a354",
     name: "kolapuri Chappales",
     category: " Chappales",
     image: p10_img,
@@ -102,7 +102,7 @@ let all_product = [
     old_price: 120.5,
   },
   {
-    id: 11,
+    _id: "65d3c6ef2f9c4b5a48c8a355",
     name: "The Love Combo Kit",
     category: "Embroidery",
     image: p11_img,
@@ -110,7 +110,7 @@ let all_product = [
     old_price: 120.5,
   },
   {
-    id: 12,
+    _id: "65d3c6ef2f9c4b5a48c8a356",
     name: "Embroidery Starter Kit Cross Stitch Kit, Full Range of Embroidery with…",
     category: "Embroidery",
     image: p12_img,
@@ -118,7 +118,7 @@ let all_product = [
     old_price: 120.5,
   },
   {
-    id: 13,
+    _id: "65d3c6ef2f9c4b5a48c8a357",
     name: "Hummingbird Hand Embroidery Pattern, flowers & Bird Pattern, Hand Embr…",
     category: "Embroidery",
     image: p13_img,
@@ -126,7 +126,7 @@ let all_product = [
     old_price: 120.5,
   },
   {
-    id: 14,
+    _id: "65d3c6ef2f9c4b5a48c8a358",
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "Embroidery",
     image: p14_img,
@@ -134,7 +134,7 @@ let all_product = [
     old_price: 120.5,
   },
   {
-    id: 15,
+    _id: "65d3c6ef2f9c4b5a48c8a359",
     name: "Anchor Flower Girl Hand Embroidery Pattern",
     category: "Embroidery",
     image: p15_img,
@@ -142,7 +142,7 @@ let all_product = [
     old_price: 120.5,
   },
   {
-    id: 16,
+    _id: "65d3c6ef2f9c4b5a48c8a360",
     name: "Couple hoop woven-wheel floral stitch Art",
     category: "Kinnaltoys",
     image: p16_img,
@@ -150,7 +150,7 @@ let all_product = [
     old_price: 120.5,
   },
   {
-    id: 17,
+    _id: "65d3c6ef2f9c4b5a48c8a361",
     name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
     category: "Kinnaltoys",
     image: p17_img,
@@ -158,7 +158,7 @@ let all_product = [
     old_price: 120.5,
   },
   {
-    id: 18,
+    _id: "65d3c6ef2f9c4b5a48c8a362",
     name: "Man on Tiger -Kinnal toys",
     category: "Kinnaltoys",
     image: p18_img,
@@ -166,7 +166,7 @@ let all_product = [
     old_price: 120.5,
   },
   {
-    id: 19,
+    _id: "65d3c6ef2f9c4b5a48c8a363",
     name: "Wooden Bride Couple Set / Marriage Couple -Kinnal Toys",
     category: "Kinnaltoys",
     image: p19_img,
@@ -174,7 +174,7 @@ let all_product = [
     old_price: 120.5,
   },
   {
-    id: 20,
+    _id: "65d3c6ef2f9c4b5a48c8a364",
     name: "Mother holding Baby-Kinnal toys",
     category: "Kinnaltoys",
     image: p20_img,
@@ -183,7 +183,7 @@ let all_product = [
   },
 
   {
-    id: 20,
+    _id: "65d3c6ef2f9c4b5a48c8a365",
     name: "Mother holding Baby-Kinnal toys",
     category: "Kinnaltoys",
     image: p20_img,

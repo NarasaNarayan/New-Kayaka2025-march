@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Sidebar2.css"; // Import CSS
 import {
@@ -6,9 +6,37 @@ import {
   FaHeart, FaUser, FaGlobe, FaFilter
 } from "react-icons/fa";
 
-const Sidebar2 = ({products}) => {
+const Sidebar2 = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [cart ,setCart]=useState([])
+
+  useEffect(() => {
+    const fetchCart = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+
+      try {
+        const response = await fetch("http://localhost:5000/api/cart", {
+          method: "GET",
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+          setCart(data.cart); // ✅ Store cart in state
+        } else {
+          console.error("Error:", data.message);
+        }
+      } catch (error) {
+        console.error("Error fetching cart:", error);
+      }
+    };
+
+    fetchCart();
+  }, [cart]);
+
+  
   // Function to close sidebar (used on small screens)
   const closeSidebar = () => {
     if (window.innerWidth <= 768) {
@@ -48,7 +76,7 @@ const Sidebar2 = ({products}) => {
           {/* Cart Dropdown */ }
           <li className={ `nav-item ${openDropdown === "cart" ? "open" : ""}` }>
             <div className="nav-link dropdown-toggle" onClick={ () => toggleDropdown("cart") }>
-              <FaShoppingCart /><span style={{color:'red'}}>{products.length}</span> Cart
+              <FaShoppingCart /><span style={{color:'red'}}>{cart.length}</span> Cart
             </div>
             <ul className="dropdown-menu">
               <li><Link to="/cart" className="dropdown-item" onClick={ () => { closeSidebar(); closeDropdown(); } } >View Cart</Link></li>
