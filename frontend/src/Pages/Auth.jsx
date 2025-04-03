@@ -18,8 +18,8 @@ const Auth = () => {
     e.preventDefault();
     try {
       const url = isSignup
-        ? "http://localhost:5000/api/signup"
-        : "http://localhost:5000/api/login";
+        ? "https://new-kayaka2025-march.onrender.com/api/signup"
+        : "https://new-kayaka2025-march.onrender.com/login";
       const { data } = await axios.post(url, user);
       alert(data.message);
       if (!isSignup) {
@@ -40,7 +40,7 @@ const Auth = () => {
 
   const handleForgotPassword = async () => {
     try {
-      const { data } = await axios.post("http://localhost:5000/api/forgot-password", { email: resetEmail });
+      const { data } = await axios.post("https://new-kayaka2025-march.onrender.com/api/forgot-password", { email: resetEmail });
       alert(data.message);
       setResetEmail("");
     } catch (error) {
