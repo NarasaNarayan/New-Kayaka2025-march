@@ -19,7 +19,7 @@ const Cart = ({getcart}) => {
     if (!token) return;
 
     try {
-        const response = await fetch(`http://localhost:5000/api/cart/${productId}`, {
+        const response = await fetch(`https://new-kayaka2025-march.onrender.com/api/cart/${productId}`, {
             method: "DELETE",
             headers: {
                 "Authorization": `Bearer ${token}`
@@ -52,7 +52,7 @@ const Cart = ({getcart}) => {
     if (!token) return;
 
     try {
-        const response = await fetch("http://localhost:5000/api/cart", {
+        const response = await fetch("https://new-kayaka2025-march.onrender.com/api/cart", {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -84,7 +84,7 @@ const Cart = ({getcart}) => {
       }
 
       try {
-        const response = await fetch("http://localhost:5000/api/cart", {
+        const response = await fetch("https://new-kayaka2025-march.onrender.com/api/cart", {
           method: "GET",
           headers: {
             "Authorization": `Bearer ${token}`
